@@ -12,11 +12,12 @@ const booleano = true;
 
 const primitivo = 30 * 6;
 
-export const FirstApp = () => {
+export const FirstApp = ({title, subTitle}) => {
   // si no hay ninguna dependencia del componente a las funciones o viceversa, se recomienda poner las varibles fuera del componente
   return (
     <>
-      <h1>FirstApp</h1>
+      <h1>{title}</h1>
+      <h2>{subTitle + 20}</h2>
       <h2>Soy una función: {miFunc("Alberto")} </h2>
       <h2>Soy un valor primitivo:{primitivo} </h2>
       <h2>Soy un arreglo: {autores} </h2>
