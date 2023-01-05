@@ -9,6 +9,6 @@ import "./style.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
-    <FirstApp title="Hola mundo con props" subTitle={50} />
+    <FirstApp title="Hola con prop" subTitle={30} />
   </React.StrictMode>
 );
