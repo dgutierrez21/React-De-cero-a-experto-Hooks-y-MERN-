@@ -11,7 +11,7 @@ export const getImagen = async() => {
 
     } catch (error) {
 
-        console.error(error)
+        
 
         return "No se encontró lo imagen";
     }
@@ -19,8 +19,4 @@ export const getImagen = async() => {
     
     
 }
-
- getImagen();
-
-
 
