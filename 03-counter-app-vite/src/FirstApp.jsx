@@ -7,7 +7,7 @@ export const FirstApp = ({ title, subTitle, nombre }) => {
 
   return (
     <>
-      <h1>{title} </h1>
+      <h1> {title} </h1>
       <p>{subTitle} </p>
       <p>{nombre} </p>
     </>
