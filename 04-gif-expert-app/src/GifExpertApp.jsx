@@ -6,13 +6,20 @@ export const GifExpertApp = () => {
 
   console.log(categorias);
 
-  const onAgregarCategoria = (valor) => {
+  const onAgregarCategoria = (nuevaCategoria) => {
     // categorias.push("Valorant")
     // Nunca se recomienda mutar el estado directamente.
     //  push mutará la matriz existente.
     // Se Necesita pasar un nueva matriz a setCategorias. No puede ( útilmente ) pasar ese número o la matriz original ( pero mutada ) ( ya que detectaría que es la misma matriz y no haría nada ).
 
-    setCategorias([valor, ...categorias]);
+    const nuevaCategoriaUpper =
+      nuevaCategoria[0].toUpperCase() + nuevaCategoria.substring(1);
+
+    if (categorias.includes(nuevaCategoriaUpper)) {
+      return;
+    }
+
+    setCategorias([nuevaCategoriaUpper, ...categorias]);
   };
 
   return (
