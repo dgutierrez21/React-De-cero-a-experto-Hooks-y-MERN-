@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el componente Gifitem Evaluar snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Valorant"
+      src="https://afkasflkjasf.com"
+    />
+    <p>
+      Valorant
+    </p>
+  </div>
+</div>
+`;
