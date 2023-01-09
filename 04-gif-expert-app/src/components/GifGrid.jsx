@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getGifs } from "../helpers/GetGifs";
 
 export const GifGrid = ({ categoria }) => {
-  const [contador, setContador] = useState(10);
+  const [imagenes, setImagenes] = useState([]);
 
   // El gancho useEffect le permite realizar efectos secundarios en sus componentes.
 
@@ -13,17 +13,24 @@ export const GifGrid = ({ categoria }) => {
 
   // useEffect(<función>, <dependencia>)
 
+  const getImagenes = async () => {
+    const nuevasImagenes = await getGifs(categoria);
+    setImagenes(nuevasImagenes);
+  };
+
   useEffect(() => {
-    getGifs(categoria);
+    getImagenes();
   }, []);
 
   return (
     <>
       <h3>{categoria}</h3>
 
-      <h5>{contador}</h5>
-
-      <button onClick={() => setContador(contador + 1)}>+1</button>
+      <ol>
+        {imagenes.map(({ id, titulo }) => (
+          <li key={id}>{titulo}</li>
+        ))}
+      </ol>
     </>
   );
 };
