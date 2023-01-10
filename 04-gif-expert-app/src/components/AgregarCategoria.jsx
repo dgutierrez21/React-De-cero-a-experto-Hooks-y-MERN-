@@ -28,7 +28,7 @@ export const AgregarCategoria = ({ onNuevaCategoria }) => {
   };
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} aria-label="form">
       <input
         type="text"
         placeholder="Buscar Gifs"

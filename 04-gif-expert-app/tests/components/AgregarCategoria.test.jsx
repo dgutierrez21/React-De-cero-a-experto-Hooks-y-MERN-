@@ -13,4 +13,20 @@ describe("Pruebas en </AgregarCategoria", () => {
 
     screen.debug();
   });
+
+  test("Debe de llamar onNuevaCategoria si el input tiene un valor", () => {
+    const valorInput = "Saitama";
+
+    render(<AgregarCategoria onNuevaCategoria={() => {}} />);
+
+    const input = screen.getByRole("textbox");
+    const form = screen.getByRole("form");
+
+    fireEvent.input(input, { target: { value: valorInput } });
+    fireEvent.submit(form);
+
+    screen.debug();
+
+    expect(input.value).toBe("");
+  });
 });
