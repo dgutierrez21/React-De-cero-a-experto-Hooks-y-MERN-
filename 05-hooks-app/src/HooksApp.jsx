@@ -7,6 +7,7 @@ import { FocusScreen } from "./04-useRef/FocusScreen";
 import { Layout } from "./05-useLayoutEffect/Layout";
 import { MemoHook } from "./06-Memos/MemoHook";
 import { Memorize } from "./06-Memos/Memorize";
+import { CallbackHook } from "./07-useCallback/CallbackHook";
 
 const HooksApp = () => {
   return (
@@ -19,7 +20,8 @@ const HooksApp = () => {
       {/* <FocusScreen /> */}
       {/* <Layout /> */}
       {/* <Memorize /> */}
-      <MemoHook />
+      {/* <MemoHook /> */}
+      <CallbackHook/>
     </>
   );
 };
