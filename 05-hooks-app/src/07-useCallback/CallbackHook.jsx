@@ -7,8 +7,8 @@ export const CallbackHook = () => {
   const [counter, setCounter] = useState(10);
 
   // es parecido a useMemo, con la diferencia de que sirve para memorizar funciones
-  const incremento = useCallback(() => {
-    setCounter((valorActual) => valorActual + 1);
+  const incremento = useCallback((valor) => {
+    setCounter((valorActual) => valorActual + valor);
   }, []);
 
   //   const incremento = () => {
