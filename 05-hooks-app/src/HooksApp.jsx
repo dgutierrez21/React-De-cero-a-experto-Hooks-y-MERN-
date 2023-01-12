@@ -8,6 +8,7 @@ import { Layout } from "./05-useLayoutEffect/Layout";
 import { MemoHook } from "./06-Memos/MemoHook";
 import { Memorize } from "./06-Memos/Memorize";
 import { CallbackHook } from "./07-useCallback/CallbackHook";
+import { Padre } from "./08-tarea-memo/Padre";
 
 const HooksApp = () => {
   return (
@@ -21,7 +22,8 @@ const HooksApp = () => {
       {/* <Layout /> */}
       {/* <Memorize /> */}
       {/* <MemoHook /> */}
-      <CallbackHook/>
+      {/* <CallbackHook/> */}
+      <Padre/>
     </>
   );
 };
