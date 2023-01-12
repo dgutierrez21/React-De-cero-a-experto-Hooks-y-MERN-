@@ -10,6 +10,8 @@ import { Memorize } from "./06-Memos/Memorize";
 import { CallbackHook } from "./07-useCallback/CallbackHook";
 import { Padre } from "./08-tarea-memo/Padre";
 
+import  "./09-useReducer/intro-Reducer"
+
 const HooksApp = () => {
   return (
     <>
@@ -23,7 +25,7 @@ const HooksApp = () => {
       {/* <Memorize /> */}
       {/* <MemoHook /> */}
       {/* <CallbackHook/> */}
-      <Padre/>
+      {/* <Padre/> */}
     </>
   );
 };
