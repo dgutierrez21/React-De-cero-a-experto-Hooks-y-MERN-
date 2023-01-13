@@ -3,12 +3,21 @@ import { TodoAdd } from "./components/TodoAdd";
 import { TodoList } from "./components/TodoList";
 
 export const TodoApp = () => {
-  const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo } =
-    useTodos();
+  const {
+    todos,
+    handleNewTodo,
+    handleDeleteTodo,
+    handleToggleTodo,
+    todosCount,
+    pendingTodosCount,
+  } = useTodos();
 
   return (
     <>
-      <h1>TodoApp (10), pendientes: 2</h1>
+      <h1 className="text-center">TodoApp</h1>
+      <h2 className="h1 text-center mt-5">
+        Total: {todosCount} | Pendientes: {pendingTodosCount}
+      </h2>
       <hr />
 
       <div className="row">
