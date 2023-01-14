@@ -1,4 +1,5 @@
 import { renderHook } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
 import { useCounter } from "../../src/hooks/useCounter";
 
 describe("Test en useCounter", () => {
@@ -19,5 +20,42 @@ describe("Test en useCounter", () => {
     const { counter } = result.current;
 
     expect(counter).toBe(100);
+  });
+
+  test("Debe incrementar el contador", () => {
+    const { result } = renderHook(() => useCounter(100));
+    const { counter, incremento } = result.current;
+
+    act(() => {
+      incremento();
+      incremento(2);
+    });
+
+    expect(result.current.counter).toBe(103);
+  });
+
+  test("Debe decrementar el contador", () => {
+    const { result } = renderHook(() => useCounter(100));
+
+    const { decremento } = result.current;
+
+    act(() => {
+      decremento();
+      decremento(2);
+    });
+
+    expect(result.current.counter).toBe(97);
+  });
+
+  test("Debe realizar el reset", () => {
+    const { result } = renderHook(() => useCounter(100));
+    const { reset, incremento } = result.current;
+
+    act(() => {
+      incremento(10);
+      reset();
+    });
+
+    expect(result.current.counter).toBe(100);
   });
 });
