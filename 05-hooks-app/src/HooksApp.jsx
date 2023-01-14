@@ -16,12 +16,31 @@ import { TodoApp } from "./09-useReducer/TodoApp";
 import { MainApp } from "./10-useContext/MainApp";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./10-useContext/error-page";
+import { HomePage } from "./10-useContext/HomePage";
+import { AboutPage } from "./10-useContext/AboutPage";
+import { LoginPage } from "./10-useContext/LoginPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainApp />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+
+      {
+        path: "about",
+        element: <AboutPage />,
+      },
+
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+    ],
   },
 ]);
 
