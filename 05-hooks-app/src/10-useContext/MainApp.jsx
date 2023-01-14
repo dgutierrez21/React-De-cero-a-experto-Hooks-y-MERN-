@@ -1,16 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
+import { UserProvider } from "./context/UserProvider";
 
 export const MainApp = () => {
   return (
-    <>
-      <h1>MainApp</h1>
+    <UserProvider>
+      {/* <h1>MainApp</h1> */}
 
       <NavBar />
 
       <hr />
 
       <Outlet />
-    </>
+    </UserProvider>
   );
 };
