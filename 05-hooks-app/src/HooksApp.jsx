@@ -15,11 +15,13 @@ import { TodoApp } from "./09-useReducer/TodoApp";
 
 import { MainApp } from "./10-useContext/MainApp";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./10-useContext/error-page";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainApp />,
+    errorElement: <ErrorPage />,
   },
 ]);
 
