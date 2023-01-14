@@ -13,6 +13,16 @@ import { Padre } from "./08-tarea-memo/Padre";
 // import "./09-useReducer/intro-Reducer";
 import { TodoApp } from "./09-useReducer/TodoApp";
 
+import { MainApp } from "./10-useContext/MainApp";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainApp />,
+  },
+]);
+
 const HooksApp = () => {
   return (
     <>
@@ -27,7 +37,8 @@ const HooksApp = () => {
       {/* <MemoHook /> */}
       {/* <CallbackHook/> */}
       {/* <Padre/> */}
-      <TodoApp />
+      {/* <TodoApp /> */}
+      <RouterProvider router={router} />
     </>
   );
 };
