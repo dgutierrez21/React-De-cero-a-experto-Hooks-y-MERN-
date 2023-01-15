@@ -10,9 +10,10 @@ export const LoginPage = () => {
       <h1>LoginPage</h1>
       <hr />
 
-      <pre>{JSON.stringify(user, null, 3)}</pre>
+      <pre data-testid="pre">{JSON.stringify(user, null, 3)}</pre>
 
       <button
+        data-testid="btnSetUser"
         className="btn btn-primary"
         onClick={() =>
           setUser({ id: 123, nombre: "Pedro Perez", email: "pedro@pedro.com" })
