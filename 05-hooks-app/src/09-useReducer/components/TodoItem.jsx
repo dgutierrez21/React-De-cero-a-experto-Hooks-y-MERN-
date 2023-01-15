@@ -15,7 +15,11 @@ export const TodoItem = ({
       >
         {description}
       </span>
-      <button className="btn btn-danger" onClick={() => onDeleteTodo(id)}>
+      <button
+        className="btn btn-danger"
+        onClick={() => onDeleteTodo(id)}
+        data-testid="btnBorrar"
+      >
         Borrar
       </button>
     </li>
