@@ -11,6 +11,7 @@ export const TodoItem = ({
           done ? "text-decoration-line-through" : ""
         }`}
         onClick={() => onToggleTodo(id)}
+        data-testid="span"
       >
         {description}
       </span>
