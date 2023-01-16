@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterApp } from "./router/RouterApp";
+import { HeroesApp } from "./HeroesApp";
 import "./style.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterApp/>
+    <HeroesApp />
   </React.StrictMode>
 );

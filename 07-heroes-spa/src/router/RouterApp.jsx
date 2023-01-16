@@ -4,31 +4,22 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { LoginPage } from "../auth/pages";
-import { DcPage, MarvelPage } from "../heroes/pages";
-import { HeroesApp } from "../HeroesApp";
+import { childHeroesRoutes, HeroesRoutes } from "../heroes/routes/HeroesRoutes";
 
 const router = createBrowserRouter([
   {
+    path: "login",
+    element: <LoginPage />,
+  },
+
+  {
     path: "/",
-    element: <Navigate to="/marvel" />,
+    element: <Navigate to="marvel" />,
   },
   {
     path: "/",
-    element: <HeroesApp />,
-    children: [
-      {
-        path: "marvel",
-        element: <MarvelPage />,
-      },
-      {
-        path: "dc",
-        element: <DcPage />,
-      },
-      {
-        path: "login",
-        element: <LoginPage />,
-      },
-    ],
+    element: <HeroesRoutes />,
+    children: childHeroesRoutes,
   },
 ]);
 
