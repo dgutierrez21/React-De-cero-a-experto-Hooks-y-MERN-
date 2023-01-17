@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Navbar } from "../../ui/components";
 import { DcPage, MarvelPage, SearchPage, HeroPage } from "../pages";
 
@@ -17,6 +17,10 @@ export const childHeroesRoutes = [
   },
   {
     path: "hero",
+    element: <HeroPage />,
+  },
+  {
+    path: "hero/:id",
     element: <HeroPage />,
   },
 ];
