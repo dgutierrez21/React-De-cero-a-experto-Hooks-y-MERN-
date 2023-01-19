@@ -29,7 +29,18 @@ module.exports = {
 };
 ```
 
-5. Opcional, pero eventualmente necesario, crear Jest config y setup:
+5. Crear la configuración para habilitar autocompletado __jsconfig.json__
+```
+{
+  "typeAcquisition": {
+    "include": ["jest"]
+  }
+}
+```
+
+6. quitar "type": "module" de  __package.json__ para evitar el error de jest "ReferenceError: module is not defined in ES module scope"
+
+7. Opcional, pero eventualmente necesario, crear Jest config y setup:
 
 __jest.config.js__
 ```
