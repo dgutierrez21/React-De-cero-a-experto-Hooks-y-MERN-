@@ -1,0 +1,32 @@
+********** Nota de actualización - Error imágenes producción **********
+Si quiere hacer el build de la app para hacer el deploy, si se fijan verán que los assets con las imágenes no se copian automáticamente a la carpeta dist con el build de producción.
+
+
+Esto es debido a Vite y como estamos creando las URL's de las imágenes en HeroCard.jsx.
+
+Si importamos directamente una imagen con import imgUrl from '/assets/heroes/marvel-spider.jpg', Vite se encargará de gestionarlo y añadirá el archivo al build de producción, pero nosotros estamos creando la URL con const heroImageUrl = `/assets/heroes/${ id }.jpg`;, de ahí que Vite no las copie automáticamente.
+
+La solución sería crear una carpeta llamada public en la raíz del proyecto (al mismo nivel que package.json o index.html) y dentro de esta carpeta mover la carpeta heroes que contiene todas las imágenes.
+
+De esta forma ya añadimos la carpeta heroes al build de producción.
+
+Para acceder a "public" tenemos que usar la ruta raíz /, por lo que ahora modificaremos la URL de heroImageUrl en el archivo HeroCard.jsx quedando: const heroImageUrl = `/heroes/${ id }.jpg`;.
+
+De esta forma ya se copian automáticamente las imágenes, y funciona nuestra app tanto en desarrollo como producción.
+
+Si quieren leer más sobre los assets y cómo manejarlos en Vite: https://vitejs.dev/guide/assets.html.
+
+
+
+********** Error en la rutas al recargar en producción - netlify **********
+Esto ocurre porque estamos manejando las rutas con el react router.
+
+Si accedemos desde la raíz, es decir, desde el index.html, react es quien se encarga de navegar y cambiar las rutas, por lo que entiende el contexto y sabe dónde ir.
+
+Ahora, cuando recargas la página, o intentas acceder manualmente a la ruta, netlify intenta gestionar el la ruta (o el servidor web que uses, al final la explicación es lo mismo en todos) y no la encuentra, ya que solo react conoce el contexto.
+
+¿Solución? Añadir una regla para indicarle a netlify en este caso, que cualquier petición pase por el index.html, y esto hará que react maneje todas las rutas, y ya funcione la app.
+
+Para netlify en concreto, deberías de crear en la raíz del build un archivo llamado _redirects (sin extensión), al mismo nivel que el index.html como referencia, que dentro contenga: /* /index.html 200.
+
+Luego sube la app de nuevo, y debería solucionarse.
