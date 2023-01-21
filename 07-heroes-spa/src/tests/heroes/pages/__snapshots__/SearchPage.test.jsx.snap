@@ -41,6 +41,7 @@ exports[`Pruebas en SearchPage Debe mostrarse correctamente con valores por defe
       <hr />
       <div
         class="alert alert-primary animate__animated animate__fadeIn"
+        data-testid="searchHeroAlert"
       >
         Search a Hero
       </div>

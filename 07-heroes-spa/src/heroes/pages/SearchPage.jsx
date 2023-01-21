@@ -63,6 +63,7 @@ export const SearchPage = () => {
           <div
             className="alert alert-primary animate__animated animate__fadeIn"
             style={{ display: showSearch ? "" : "none" }}
+            data-testid="searchHeroAlert"
           >
             Search a Hero
           </div>
