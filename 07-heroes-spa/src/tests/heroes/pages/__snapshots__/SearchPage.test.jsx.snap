@@ -16,7 +16,9 @@ exports[`Pruebas en SearchPage Debe mostrarse correctamente con valores por defe
         Searching
       </h4>
       <hr />
-      <form>
+      <form
+        data-testid="form"
+      >
         <input
           autocomplete="off"
           class="form-control"
@@ -47,6 +49,7 @@ exports[`Pruebas en SearchPage Debe mostrarse correctamente con valores por defe
       </div>
       <div
         class="alert alert-danger animate__animated animate__fadeIn"
+        data-testid="noHeroAlert"
         style="display: none;"
       >
         No hero has been found with the word "
