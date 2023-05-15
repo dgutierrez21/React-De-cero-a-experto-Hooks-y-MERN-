@@ -24,10 +24,19 @@ export const pokemonSlice = createSlice({
     startLoadingPokemons: (state, { payload }: PayloadAction<boolean>) => {
       state.value.isLoading = payload;
     },
-    setPokemons: (state, action: PayloadAction<any>) => {
-      //...
-    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getPokemons.fulfilled, (state, action) => {
+      console.log("Recibido");
+      state.value = action.payload;
+    });
+    builder.addCase(getPokemons.pending, (state, action) => {
+      console.log("Pendiente");
+    });
+    builder.addCase(getPokemons.rejected, (_, action) => {
+      console.log("Rechazado");
+    });
   },
 });
 
-export const { setPokemons, startLoadingPokemons } = pokemonSlice.actions;
+export const { startLoadingPokemons } = pokemonSlice.actions;
