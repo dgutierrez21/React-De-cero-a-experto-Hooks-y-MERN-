@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import "./App.css";
+import { RootState } from "./store/store";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from "./store/slices/counter/counterSlice";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const count = useSelector((state: RootState) => state.counter.value);
+
+  const dispatch = useDispatch();
 
   return (
     <>
       <h1>Redux Toolkit</h1>
+      <h2>{count}</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => dispatch(increment())}>increment</button>
+        <button onClick={() => dispatch(decrement())}>decrement</button>
+        <button onClick={() => dispatch(incrementByAmount(10))}>
+          incrementBy
         </button>
       </div>
     </>
