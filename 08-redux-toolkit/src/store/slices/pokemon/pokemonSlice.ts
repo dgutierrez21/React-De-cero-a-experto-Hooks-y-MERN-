@@ -1,15 +1,20 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { getPokemons } from "./thunks";
 
 interface pokemonState {
-  page: number;
-  pokemons: any[];
-  isLoading: boolean;
+  value: {
+    page: number;
+    pokemons: any[];
+    isLoading: boolean;
+  };
 }
 
 const initialState: pokemonState = {
-  page: 0,
-  pokemons: [],
-  isLoading: false,
+  value: {
+    page: 0,
+    pokemons: [],
+    isLoading: false,
+  },
 };
 
 export const pokemonSlice = createSlice({
@@ -17,7 +22,7 @@ export const pokemonSlice = createSlice({
   initialState,
   reducers: {
     startLoadingPokemons: (state, { payload }: PayloadAction<boolean>) => {
-      state.isLoading = payload;
+      state.value.isLoading = payload;
     },
     setPokemons: (state, action: PayloadAction<any>) => {
       //...
