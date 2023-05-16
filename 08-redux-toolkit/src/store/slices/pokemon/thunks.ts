@@ -18,7 +18,10 @@ export const getPokemons = createAsyncThunk<
 >("pokemon/getPokemons", async (page: number, thunkApi) => {
   try {
     // TODO: Realizar peticion http
-    const response = await pokemonApi.get(`/pokemon?limit=10&offset=${page}`);
+
+    const response = await pokemonApi.get(
+      `/pokemon?limit=10&offset=${page * 10}`
+    );
 
     const data: Pokemon = {
       isLoading: false,

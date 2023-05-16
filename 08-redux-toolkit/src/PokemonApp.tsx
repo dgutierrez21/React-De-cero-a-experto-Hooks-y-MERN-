@@ -1,27 +1,48 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "./store/hooks";
-import { startLoadingPokemons } from "./store/slices/pokemon/pokemonSlice";
+import { useAppDispatch, useAppSelector } from "./store/hooks";
+import {
+  nextPage,
+  startLoadingPokemons,
+} from "./store/slices/pokemon/pokemonSlice";
 import { getPokemons } from "./store/slices/pokemon/thunks";
 
 export const PokemonApp = () => {
   const dispatch = useAppDispatch();
 
+  const { pokemons, page, isLoading } = useAppSelector(
+    (state) => state.pokemons.value
+  );
+
   useEffect(() => {
     dispatch(startLoadingPokemons(true));
-    dispatch(getPokemons(1)).then((resp) => {
+    dispatch(getPokemons(page)).then((resp) => {
       dispatch(startLoadingPokemons(false));
     });
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   return (
     <>
       <h1>PokemonApp</h1>
       <hr />
+      {isLoading && (
+        <h2>
+          {pokemons.length !== 0
+            ? "Cargando nuevos pokemons..."
+            : "Cargando Pokemons..."}
+        </h2>
+      )}
       <ul>
-        <li>pokemon1</li>
-        <li>pokemon2</li>
-        <li>pokemon3</li>
+        {pokemons.map(({ name }) => {
+          return (
+            <li key={name}>
+              <p>{name}</p>
+            </li>
+          );
+        })}
       </ul>
+      <button disabled={isLoading} onClick={() => dispatch(nextPage())}>
+        next
+      </button>
     </>
   );
 };

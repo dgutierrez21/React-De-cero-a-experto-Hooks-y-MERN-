@@ -24,6 +24,9 @@ export const pokemonSlice = createSlice({
     startLoadingPokemons: (state, { payload }: PayloadAction<boolean>) => {
       state.value.isLoading = payload;
     },
+    nextPage: ({ value }) => {
+      value.page += 1;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getPokemons.fulfilled, (state, action) => {
@@ -39,4 +42,4 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { startLoadingPokemons } = pokemonSlice.actions;
+export const { startLoadingPokemons, nextPage } = pokemonSlice.actions;
